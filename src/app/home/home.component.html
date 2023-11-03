@@ -1,0 +1,115 @@
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+        <a class="navbar-brand text-white text-uppercase" href="#">Bloggers Stop</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link text-white" routerLink="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" routerLink="/login">Login</a>
+            </li> 
+            <li class="nav-item">
+              <a class="nav-link text-white" routerLink="/registration">Sign Up</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="#about">About</a>
+              </li> 
+              <li class="nav-item">
+                <a class="nav-link text-white" href="#contact">Contact</a>
+              </li>         
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
+</header>
+
+<section class="vh-100 bg-image"
+  style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');">
+
+    <div id="outerdiv" class="col-sm-6 container p-4 mx-auto align-item-center">
+        <div *ngIf="items?.length > 0">
+            <h3 class="text-uppercase text-center">Blogs</h3>
+        </div>
+        <div *ngFor="let item of items" class="card mb-3 bg-dark p-3">
+            <h4 class="font-weight-bold text-white" [routerLink]="['justread/blogs', item.id]">{{ item.title }}</h4>
+            <p class="font-weight-bold text-white">{{ item.author }}</p>
+            <p class="text-white">{{ item.content | slice: 0:70 }}
+                <span>
+                    <a [routerLink]="['justread/blogs', item.id]">...more</a>
+                </span>
+            </p>
+        </div>
+        <div class="card mb-3 bg-dark p-3 text-center" *ngIf="items?.length == 0">
+            <h3 class="text-uppercase text-center text-white">No Blogs Found...</h3>
+        </div>
+        <br />
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-light text-center text-lg-start">
+    <div class="container p-4">
+      <div class="row">
+        <div id= "about" class="col-lg-6 col-md-12 mb-4 mb-md-0">
+          <h5 class="text-uppercase">About</h5>  
+            <p>
+                Bloggers Stop is a dynamic online platform where individuals, businesses, or organizations share written content, 
+                often in the form of articles or posts, on various topics of interest. It serves as a space for creators to express 
+                their ideas, knowledge, and opinions, and it allows readers to engage with the content through comments and social sharing. 
+                Bloggers Stop cover a wide range of subjects, from personal experiences and hobbies to professional insights, news, and educational content.
+                They play a crucial role in disseminating information, building communities, and connecting people with shared interests in the digital world. 
+            </p>
+        </div>
+  
+        <div id= "contact" class="col-lg-6 col-md-12 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Contact</h5> 
+            <h6>Email:</h6><p><a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox?compose=GTvVlcRzDDMRczGtvJnlJbLwLtvXLbvCDMhNzpFnVZQScDbxKXwgxxwQMwcKBxmSLtKZHlxpBwdnL">contact@bloggers-stop-india.com</a></p>
+            <h6>Phone:</h6><p>+91-8886543102</p>
+            <h6>Address:</h6><p>Bloggers Stop India, 19th Main, HSR Layout Sector-1,<br/>Banglore, India - 560102</p>
+        </div>
+      </div>
+    </div>
+  
+    <div class="text-center p-3 bg-dark text-white">
+        Copyright © 2023, Bloggers Stop India.
+    </div>
+</footer>
+
+
+
+<!--div class="container" style="margin-top: 100px;" style="padding-bottom: 100px;"> 
+     
+    <div class = "row">
+    <div class="col-sm-4" *ngFor = "let episode of webService.episode_list | async">
+    <div class="card card-block width:10rems text-white bg-danger mb3 padding-bottom: 100px">
+      
+        <mat-tab-group animationDuration="750ms">
+            <mat-tab label="Overview"> <img class="card-img-top" src="assets/logo.png"  alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Episode: <br> {{episode.name}}</h5>
+                <p class="card-text">{{episode.summary}}<br></p>
+                <div> <button mat-raised-button colour="white" [routerLink]= "['/episodes', episode._id]">Critiques</button></div>
+              </div>   
+            </mat-tab>
+            <mat-tab label="More Info"> 
+                <div class="card-body">
+                    <h5 class="card-title">Season:</h5><p>{{episode.season}}</p>
+                    <h5 class="card-text">Episode:</h5><p>{{episode.number}}</p>
+                    <h5 class="card-text">First Aired:</h5><p> {{episode.airdate}}</p>
+                    <h5 class="card-text">Runtime (mins):</h5><p>{{episode.runtime}}</p>
+                    <h5 class="card-text">Additional Link:</h5><p>{{episode.url}}</p>              
+                </div>   
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+    </div>
+    </div>
+</div-->

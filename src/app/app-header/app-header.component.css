@@ -1,0 +1,37 @@
+.navbar {
+    background-color: #007BFF;
+}
+
+.navbar-brand {
+    color: #fff;
+}
+
+.navbar-toggler {
+    background-color: #fff;
+}
+
+.navbar-toggler-icon {
+    background-color: #007BFF;
+}
+
+.navbar-nav {
+    margin-right: auto;
+}
+
+.nav-item {
+    padding: 0 10px;
+}
+
+.nav-link {
+    color: #fff;
+}
+
+.form-control {
+    margin-right: 10px;
+}
+
+.btn {
+    background-color: #28a745;
+    color: #fff;
+}
+

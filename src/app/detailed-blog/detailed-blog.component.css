@@ -1,0 +1,33 @@
+.container {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.titled {
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+.authord {
+    font-size: inherit;
+    color: inherit;
+}
+
+.contentd {
+    font-size: inherit;
+    line-height: inherit;
+}
+
+.edit-buttond {
+    border: none;
+    background-color: transparent;
+    color: inherit;
+    cursor: pointer;
+}
+
+.delete-buttond {
+    border: 1;
+    background-color: transparent;
+    color: inherit;
+    cursor: pointer;
+}

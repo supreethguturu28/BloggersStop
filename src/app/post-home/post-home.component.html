@@ -1,0 +1,53 @@
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+        <a class="navbar-brand text-white text-uppercase" href="#">Bloggers Stop</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link text-white" routerLink="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" routerLink="/addpost">Add Blog</a>
+            </li>      
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
+            <button class="btn btn-success my-2 my-sm-0 btn-danger" routerLink="/">Log Out</button>
+          </form>
+        </div>
+      </nav>
+</header>
+
+<section class="vh-100 bg-image"
+  style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');">
+
+    <div id="outerdiv" class="col-sm-6 container p-4 mx-auto align-item-center">
+        <div *ngIf="items?.length > 0">
+            <h3 class="text-uppercase text-center">Your Blogs</h3>
+        </div>
+        <div *ngFor="let item of items" class="card mb-3 bg-dark p-3">
+            <h5 class="font-weight-bold text-white">{{ item.title }}</h5>
+            <p class="font-weight-bold text-white">{{ item.author }}</p>
+            <p class="text-white">{{ item.content | slice: 0:70 }}
+                <span>
+                    <a [routerLink]="['blogs', item.id]">...more</a>
+                </span>
+            </p>
+        </div>
+        <div class="card mb-3 bg-dark p-3 text-center" *ngIf="items?.length == 0">
+            <h3 class="text-uppercase text-center text-white">No Blogs Found...</h3>
+        </div>
+        <br />
+    </div>
+</section>
+
+<footer>
+    <div class="text-center p-3 bg-dark text-white">
+        Copyright © 2023, Bloggers Stop India.
+      </div>
+</footer>
