@@ -31,7 +31,10 @@
               <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
 
                 <div class="form-outline mb-4">
-                  <input type="text" id="form3Example1cg" class="form-control" placeholder="Enter Name" />
+                  <input type="name" id="floatingPassword" class="form-control" placeholder="Enter Name" formControlName="name"[ngClass]="{ 'is-invalid': submitted && f.password.errors }" id="inputPassword4">
+                  <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                    <div *ngIf="f.password.errors.required">Name is required</div>
+                  </div>
                   <label class="form-label" for="form3Example1cg">Your Name</label>
                 </div>
 

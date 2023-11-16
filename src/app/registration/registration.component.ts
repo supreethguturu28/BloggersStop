@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-registration',
@@ -10,16 +11,26 @@ import { Router } from '@angular/router';
 export class RegistrationComponent {
   registerForm:any = FormGroup;
   submitted = false;
-  constructor( private formBuilder: FormBuilder, private router: Router){}
+
+  constructor( private formBuilder: FormBuilder, private router: Router, private snackBar: MatSnackBar){}
+
   get f() { return this.registerForm.controls; }
-  onSubmit() {
-    
+
+  onSubmit() {    
     this.submitted = true;
     if (this.registerForm.invalid) {
         return;
     }
+
+    const useremail = this.f.email.value;
+
     if(this.submitted)
     {
+      this.snackBar.open(`Registration Successful for ${useremail}.`, 'Close', {
+        duration: 3000, 
+        horizontalPosition: 'center',
+        verticalPosition: 'top'
+      });
       this.router.navigate(['/login']);
     }
  

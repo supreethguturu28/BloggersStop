@@ -15,6 +15,8 @@ import { RegistrationComponent } from './registration/registration.component';
 import { LoginComponent } from './login/login.component';
 import { PostHomeComponent } from './post-home/post-home.component';
 import { JustReadBlogComponent } from './just-read-blog/just-read-blog.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -36,6 +38,8 @@ import { JustReadBlogComponent } from './just-read-blog/just-read-blog.component
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

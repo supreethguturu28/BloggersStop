@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
@@ -10,16 +12,28 @@ import { Router } from '@angular/router';
 export class LoginComponent { 
   registerForm:any = FormGroup;
   submitted = false;
-  constructor( private formBuilder: FormBuilder, private router: Router){}
+
+  constructor( private formBuilder: FormBuilder, private snackBar: MatSnackBar,
+    private authService: AuthService, private router: Router){}
+
   get f() { return this.registerForm.controls; }
-  onSubmit() {
-    
+
+  onSubmit() {    
     this.submitted = true;
+
     if (this.registerForm.invalid) {
         return;
     }
+
+    const useremail = this.f.email.value;
+
     if(this.submitted)
     {
+      this.snackBar.open(`Login Successful. Welcome ${useremail}.`, 'Close', {
+        duration: 3000, 
+        horizontalPosition: 'center',
+        verticalPosition: 'top'
+      });
       this.router.navigate(['/posthome']);
     }
  
